@@ -1,7 +1,3 @@
-I'm guessing you've installed Code::Blocks but not installed or set up GCC yet. I'm assuming you're on Windows,
-based on your comments about Visual Studio; if you're on a different platform, the steps for setting up GCC
-should be similar but not identical.
-
 First you'll need to download GCC. There are lots and lots of different builds; personally, I use the 64-bit
 build of TDM-GCC. The setup for this might be a bit more complex than you'd care for, so you can go for the 
 32-bit version or just grab a preconfigured Code::Blocks/TDM-GCC setup here.
