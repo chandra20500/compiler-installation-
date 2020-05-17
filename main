@@ -1,0 +1,23 @@
+I'm guessing you've installed Code::Blocks but not installed or set up GCC yet. I'm assuming you're on Windows, based on your comments about Visual Studio; if you're on a different platform, the steps for setting up GCC should be similar but not identical.
+
+First you'll need to download GCC. There are lots and lots of different builds; personally, I use the 64-bit build of TDM-GCC. The setup for this might be a bit more complex than you'd care for, so you can go for the 32-bit version or just grab a preconfigured Code::Blocks/TDM-GCC setup here.
+
+Once your setup is done, go ahead and launch Code::Blocks. You don't need to create a project or write any code yet; we're just here to set stuff up or double-check your setup, depending on how you opted to install GCC.
+
+Go into the Settings menu, then select Global compiler settings in the sidebar, and select the Toolchain executables tab. Make sure the Compiler's installation directory textbox matches the folder you installed GCC into. For me, this is C:\TDM-GCC-64. Your path will vary, and this is completely fine; just make sure the path in the textbox is the same as the path you installed to. Pay careful attention to the warning note Code::Blocks shows: this folder must have a bin subfolder which will contain all the relevant GCC executables. If you look into the folder the textbox shows and there isn't a bin subfolder there, you probably have the wrong installation folder specified.
+
+Now, in that same Toolchain executables screen, go through the individual Program Files boxes one by one and verify that the filenames shown in each are correct. You'll want some variation of the following:
+
+C compiler: gcc.exe (mine shows x86_64-w64-mingw32-gcc.exe)
+C++ compiler: g++.exe (mine shows x86_64-w64-mingw32-g++.exe)
+Linker for dynamic libs: g++.exe (mine shows x86_64-w64-mingw32-g++.exe)
+Linker for static libs: gcc-ar.exe (mine shows x86_64-w64-mingw32-gcc-ar.exe)
+Debugger: GDB/CDB debugger: Default
+Resource compiler: windres.exe (mine shows windres.exe)
+Make program: make.exe (mine shows mingw32-make.exe)
+
+Again, note that all of these files are in the bin subfolder of the folder shown in the Compiler installation folder box - if you can't find these files, you probably have the wrong folder specified. It's okay if the filenames aren't a perfect match, though; different GCC builds might have differently prefixed filenames, as you can see from my setup.
+
+Once you're done with all that, go ahead and click OK. You can restart Code::Blocks if you'd like, just to confirm the changes will stick even if there's a crash (I've had occasional glitches where Code::Blocks will crash and forget any settings changed since the last launch).
+
+Now, you should be all set. Go ahead and try your little section of code again. You'll want int main(void) to be int main(), but everything else looks good. Try building and running it and see what happens. It should run successfully
